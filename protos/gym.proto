@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+//指定包名 生成的文件基于${outDir}
+option go_package = "/gym";
+
+//健身房
+service Gym {
+  rpc BodyBuilding (Person) returns (Reply) {}
+}
+
+//谁在健身
+message Person {
+  string name = 1;
+  repeated string actions = 2;
+}
+
+//结果
+message Reply {
+  int32 code = 1;
+  string msg = 2;
+}
